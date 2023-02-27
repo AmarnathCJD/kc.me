@@ -1204,7 +1204,7 @@ div.amplitude-repeat-song.amplitude-repeat-song-on svg path {
           "name": "Oombalum kanjiyum",
           "artist": "@Augusto_V",
           "album": "AJCE Anthem",
-          "url": "https://47.250.37.135/Oombalum%20kanjiyum%20%28Live%29%20AETrim1677439886123.mp3",
+          "url": "https://cdn.kavyachandra.me/Oombalum%20kanjiyum%20%28Live%29%20AETrim1677439886123.mp3",
           "cover_art_url": "https://i.ytimg.com/vi/9bWgJ28C8T8/hqdefault.jpg"
         },
         {
@@ -1413,10 +1413,18 @@ void main(){
 `;
 
     window.addEventListener('resize', onWindowResize, false);
+    window.addEventListener('orientationchange', onOrentationChange, false);
 
     function onWindowResize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
       
       gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform1f(widthHandle, window.innerWidth);
+      gl.uniform1f(heightHandle, window.innerHeight);
+    }
+
+    function onOrentationChange() {
       gl.uniform1f(widthHandle, window.innerWidth);
       gl.uniform1f(heightHandle, window.innerHeight);
     }
