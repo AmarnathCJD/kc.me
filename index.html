@@ -1165,9 +1165,7 @@ div.amplitude-repeat-song.amplitude-repeat-song-on svg path {
   <script>
     let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
-    if (theme == 'dark') {
-      document.documentElement.classList.add('dark')
-    }
+  
 
     document.getElementById('dark-mode-toggle').addEventListener('click', function () {
       document.documentElement.classList.toggle('dark')
@@ -1417,8 +1415,7 @@ void main(){
     window.addEventListener('resize', onWindowResize, false);
 
     function onWindowResize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      
       gl.viewport(0, 0, canvas.width, canvas.height);
       gl.uniform1f(widthHandle, window.innerWidth);
       gl.uniform1f(heightHandle, window.innerHeight);
